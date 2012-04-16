@@ -4,6 +4,7 @@ import com.copyright.rup.works.broker.clients.BaseClient;
 import com.copyright.rup.works.broker.clients.GsonClient;
 import com.copyright.rup.works.broker.clients.JacksonClient;
 import com.copyright.rup.works.broker.clients.JaxbClient;
+import com.copyright.rup.works.broker.clients.ThriftClient;
 import com.copyright.rup.works.broker.clients.XstreamClient;
 
 import org.apache.log4j.Logger;
@@ -13,7 +14,7 @@ import org.apache.log4j.Logger;
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: 04/12/12
+ * Date: 04/12/12.
  *
  * @author Andrei_Khadziukou.
  *
@@ -50,7 +51,6 @@ public final class Client {
      *
      * @param args
      *            The command line arguments
-     * @throws Exception
      */
     public static void main(String[] args) {
         LOGGER.info("Client was started initialization....");
@@ -70,11 +70,11 @@ public final class Client {
                     client = new XstreamClient();
                     queue = UtilVarialble.QUEUE_XSTREM;
                     break;
-/*                case ARG_THRIFT:
+                case ARG_THRIFT:
                     client = new ThriftClient();
                     queue = UtilVarialble.QUEUE_THRIFT;
                     break;
-*/
+
                 default:
                     break;
             }

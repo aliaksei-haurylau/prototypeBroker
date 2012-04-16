@@ -1,6 +1,5 @@
 package com.copyright.rup.works.broker;
 
-
 /**
  * Utility type for common variable.
  * <p/>

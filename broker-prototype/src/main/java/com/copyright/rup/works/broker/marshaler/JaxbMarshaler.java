@@ -64,7 +64,6 @@ public class JaxbMarshaler implements IMarshaler {
 
     /**
      * {@inheritDoc}
-     * @throws JAXBException
      */
     @SuppressWarnings("unchecked")
     public <T> T toEntity(String json, Class<T> clazz) {

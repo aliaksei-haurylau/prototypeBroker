@@ -39,7 +39,7 @@ import java.util.List;
  * <p/>
  * Date: 04/13/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  */
 public class JacksonMarshaler implements IMarshaler {
 

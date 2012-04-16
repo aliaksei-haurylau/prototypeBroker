@@ -34,13 +34,16 @@ import java.util.List;
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: 04/16/12
+ * Date: 04/13/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  *
  */
 public class Generator {
 
+    /**
+     * The logger.
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(Generator.class);
 
     /**

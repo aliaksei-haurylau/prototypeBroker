@@ -13,9 +13,9 @@ import com.copyright.rup.works.broker.marshaler.GsonMarshaler;
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: 04/12/12
+ * Date: 04/12/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  *
  */
 public class GsonClient extends BaseClient {

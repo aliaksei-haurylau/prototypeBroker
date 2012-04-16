@@ -37,9 +37,9 @@ import java.util.List;
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: Apr 17, 2012
+ * Date: 04/11/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou/
  *
  */
 public class GsonMarshaler implements IMarshaler {
@@ -107,9 +107,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: 04/13/12.
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class AffiliationAdapter implements JsonDeserializer<IAffiliation> {
@@ -129,9 +129,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class AuthorAdapter implements JsonDeserializer<IAuthor> {
@@ -148,9 +148,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class ContributorAdapter implements JsonDeserializer<IContributor> {
@@ -170,9 +170,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class EditorAdapter implements JsonDeserializer<IEditor> {
@@ -192,9 +192,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class PublisherAdapter implements JsonDeserializer<IPublisher> {
@@ -214,9 +214,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class SubjectAdapter implements JsonDeserializer<ISubject> {
@@ -236,9 +236,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class TitleAdapter implements JsonDeserializer<ITitle> {
@@ -258,9 +258,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class WorkAdapter implements JsonDeserializer<IWork> {
@@ -280,9 +280,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class WorkCollectionAdapter implements JsonDeserializer<IWorkCollection> {
@@ -299,9 +299,9 @@ public class GsonMarshaler implements IMarshaler {
      * <p/>
      * Copyright (C) 2012 copyright.com
      * <p/>
-     * Date: Apr 17, 2012
+     * Date: 04/12/12.
      *
-     * @author Andrei_Khadziukou
+     * @author Andrei_Khadziukou.
      *
      */
     private class WorkLanguageAdapter implements JsonDeserializer<IWorkLanguage> {

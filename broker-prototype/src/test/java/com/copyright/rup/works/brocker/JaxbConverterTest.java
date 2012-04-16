@@ -3,13 +3,13 @@ package com.copyright.rup.works.brocker;
 import org.junit.Ignore;
 
 /**
- * It is a test fro JAXB.
+ * It is a test for JAXB.
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: Apr 17, 2012
+ * Date: 04/12/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  *
  */
 @Ignore("Was deleted, this test was moved into ConverterTest class")

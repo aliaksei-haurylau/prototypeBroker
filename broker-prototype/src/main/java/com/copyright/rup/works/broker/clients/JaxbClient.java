@@ -12,9 +12,9 @@ import com.copyright.rup.works.broker.marshaler.JaxbMarshaler;
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: 04/14/12þ
+ * Date: 04/14/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  *
  */
 public class JaxbClient extends BaseClient {

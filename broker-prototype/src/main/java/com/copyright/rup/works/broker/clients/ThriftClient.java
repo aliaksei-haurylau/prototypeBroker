@@ -13,7 +13,7 @@ import com.copyright.rup.works.broker.impl.ThriftProducer;
  * <p/>
  * Date: 04/14/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  *
  */
 public class ThriftClient extends BaseClient {
