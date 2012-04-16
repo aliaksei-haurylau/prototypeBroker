@@ -123,3 +123,7 @@ jar {
 checkstyleMain {
     exclude(['**/copyright/rup/works/broker/thrift/**/*', '**/copyright/rup/works/domain/**/*'])
 }
+
+findbugsMain {
+    exclude(['**/copyright/rup/works/broker/thrift/**/*', '**/copyright/rup/works/domain/**/*'])
+}
