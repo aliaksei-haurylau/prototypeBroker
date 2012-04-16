@@ -48,7 +48,7 @@ dependencies {
 task runClient(type: JavaExec, dependsOn: classes) {
     description = 'Run client (if server is not running, task will be failed)'
     main = 'com.copyright.rup.works.broker.Client'
-    classpath sourceSets.main.classesDir
+    classpath sourceSets.main.output.classesDir
     classpath sourceSets.main.resources.srcDirs
     classpath configurations.runtime
 }
@@ -56,7 +56,7 @@ task runClient(type: JavaExec, dependsOn: classes) {
 task runXStream(type: JavaExec, dependsOn: classes) {
     description = 'Runs xstream client'
     main = 'com.copyright.rup.works.broker.clients.XstreamClient'
-    classpath sourceSets.main.classesDir
+    classpath sourceSets.main.output.classesDir
     classpath sourceSets.main.resources.srcDirs
     classpath configurations.runtime
 }
@@ -64,7 +64,7 @@ task runXStream(type: JavaExec, dependsOn: classes) {
 task runGson(type: JavaExec, dependsOn: classes) {
     description = 'Runs gson client'
     main = 'com.copyright.rup.works.broker.clients.GsonClient'
-    classpath sourceSets.main.classesDir
+    classpath sourceSets.main.output.classesDir
     classpath sourceSets.main.resources.srcDirs
     classpath configurations.runtime
 }
@@ -72,7 +72,7 @@ task runGson(type: JavaExec, dependsOn: classes) {
 task runJackson(type: JavaExec, dependsOn: classes) {
     description = 'Runs jackson client'
     main = 'com.copyright.rup.works.broker.clients.JacksonClient'
-    classpath sourceSets.main.classesDir
+    classpath sourceSets.main.output.classesDir
     classpath sourceSets.main.resources.srcDirs
     classpath configurations.runtime
 }
@@ -80,7 +80,7 @@ task runJackson(type: JavaExec, dependsOn: classes) {
 task runJaxb(type: JavaExec, dependsOn: classes) {
     description = 'Runs Jaxb clien'
     main = 'com.copyright.rup.works.broker.clients.JaxbClient'
-    classpath sourceSets.main.classesDir
+    classpath sourceSets.main.output.classesDir
     classpath sourceSets.main.resources.srcDirs
     classpath configurations.runtime
 }
@@ -88,7 +88,7 @@ task runJaxb(type: JavaExec, dependsOn: classes) {
 task runThrift(type: JavaExec, dependsOn: classes) {
     description = 'Runs trift client'
     main = 'com.copyright.rup.works.broker.clients.ThriftClient'
-    classpath sourceSets.main.classesDir
+    classpath sourceSets.main.output.classesDir
     classpath sourceSets.main.resources.srcDirs
     classpath configurations.runtime
 }
@@ -111,10 +111,9 @@ generateThrift.description = 'Generates Thrift classes'
 jar {
     manifest {
         attributes("Main-Class":"com.copyright.rup.works.broker.Client",
-                "Implementation-Title": "Broker",
-                "Implementation-Version" : "${versionMajor}.${versionMinor}.${versionBuild}")
+                "Implementation-Title": project.name,
+                "Implementation-Version" : version)
     }
-
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
