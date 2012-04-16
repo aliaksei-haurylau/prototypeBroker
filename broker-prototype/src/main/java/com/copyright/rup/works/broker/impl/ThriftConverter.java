@@ -54,17 +54,10 @@ public final class ThriftConverter {
      * @return thrifrWork thrift structure.
      */
     public static ThriftWork convertFrom(IWork work) {
-
         ThriftWork thriftWork = new ThriftWork();
         thriftWork.setId(work.getId());
-        List<ThriftAuthor> thriftAuthors = new LinkedList<ThriftAuthor>();
-        for (IAuthor author : work.getAuthors()) {
-            ThriftAuthor thriftAuthor = new ThriftAuthor();
-            thriftAuthor.setBirthYear(author.getBirthYear());
-            thriftAuthor.setDeathYear(author.getDeathYear());
-            thriftAuthors.add(thriftAuthor);
-        }
-        thriftWork.setAuthors(thriftAuthors);
+
+        thriftWork.setAuthors(generateThriftAuthors(work.getAuthors()));
 
         ThriftWorkCollection thriftWorkCollection = new ThriftWorkCollection();
         thriftWorkCollection.setCollectionName(work.getCollection().getCollectionName());
@@ -84,31 +77,9 @@ public final class ThriftConverter {
                 .getImportFileContentType());
         thriftWork.setCollection(thriftWorkCollection);
 
-        List<ThriftPerson> contributors = new LinkedList<ThriftPerson>();
-        for (IContributor contributor: work.getContributors()) {
-            ThriftPerson thriftPerson = new ThriftPerson();
-            thriftPerson.setName(contributor.getName());
-            thriftPerson.setRole(contributor.getRole());
-            ThriftAffiliation thriftAffiliation = new ThriftAffiliation();
-            thriftAffiliation.setAddress(contributor.getAffiliation().getAddress());
-            thriftAffiliation.setCountry(contributor.getAffiliation().getCountry());
-            thriftPerson.setAffiliation(thriftAffiliation);
-            contributors.add(thriftPerson);
-        }
-        thriftWork.setContributors(contributors);
+        thriftWork.setContributors(generateThriftContributers(work.getContributors()));
 
-        List<ThriftPerson> editors = new LinkedList<ThriftPerson>();
-        for (IEditor editor: work.getEditors()) {
-            ThriftPerson thriftPerson = new ThriftPerson();
-            thriftPerson.setName(editor.getName());
-            thriftPerson.setRole(editor.getRole());
-            ThriftAffiliation thriftAffiliation = new ThriftAffiliation();
-            thriftAffiliation.setAddress(editor.getAffiliation().getAddress());
-            thriftAffiliation.setCountry(editor.getAffiliation().getCountry());
-            thriftPerson.setAffiliation(thriftAffiliation);
-            editors.add(thriftPerson);
-        }
-        thriftWork.setEditors(editors);
+        thriftWork.setEditors(generateTriftEditors(work.getEditors()));
 
         ThriftWorkLanguage thriftWorkLanguage = new ThriftWorkLanguage();
         thriftWorkLanguage.setLanguage(work.getLanguage().getLanguage());
@@ -117,29 +88,14 @@ public final class ThriftConverter {
         thriftWork.setPublicationType(work.getPublicationType());
         thriftWork.setPuclicationCountry(work.getPublicationCountry());
 
-        ThriftPublisher thriftPublisher = new ThriftPublisher();
-        thriftPublisher.setName(work.getPublisher().getName());
-        thriftPublisher.setPublicationPlace(work.getPublisher().getPublicationPlace());
-        thriftPublisher.setRole(work.getPublisher().getRole());
-        thriftPublisher.setStatus(work.getPublisher().getStatus());
-        thriftPublisher.setSortOrder(work.getPublisher().getSortOrder());
-        thriftWork.setPublisher(thriftPublisher);
+        thriftWork.setPublisher(generateThriftPublishers(work.getPublisher()));
 
         ThriftSubject thriftSubject = new ThriftSubject();
         thriftSubject.setSubject(work.getSubject().getSubject());
         thriftSubject.setSubjectType(work.getSubject().getSubjectType());
         thriftWork.setSubject(thriftSubject);
 
-        List<ThriftTitle> thriftTitles = new LinkedList<ThriftTitle>();
-        for (ITitle title: work.getTitles()) {
-            ThriftTitle thriftTitle = new ThriftTitle();
-            thriftTitle.setTitle(title.getTitle());
-            thriftTitle.setEdition(title.getEdition());
-            thriftTitle.setType(title.getType());
-            thriftTitle.setVolume(title.getVolume());
-            thriftTitles.add(thriftTitle);
-        }
-        thriftWork.setTitles(thriftTitles);
+        thriftWork.setTitles(generateThriftTitles(work.getTitles()));
 
         thriftWork.setAudience(work.getAudience());
 
@@ -155,14 +111,8 @@ public final class ThriftConverter {
 
         IWork work = new Work();
         work.setId(thriftWork.getId());
-        List<IAuthor> authors = new LinkedList<IAuthor>();
-        for (ThriftAuthor thriftAuthor : thriftWork.getAuthors()) {
-            IAuthor author = new Author();
-            author.setBirthYear(thriftAuthor.getBirthYear());
-            author.setDeathYear(thriftAuthor.getDeathYear());
-            authors.add(author);
-        }
-        work.setAuthors(authors);
+
+        work.setAuthors(generateDomainAuthors(thriftWork.getAuthors()));
 
         WorkCollection workCollection = new WorkCollection();
         workCollection.setCollectionName(thriftWork.getCollection().getCollectionName());
@@ -178,32 +128,9 @@ public final class ThriftConverter {
                 .getImportFileContentType());
         work.setCollection(workCollection);
 
-        List<IContributor> contributors = new LinkedList<IContributor>();
-        for (ThriftPerson thriftContributor: thriftWork.getContributors()) {
-            IContributor contributor = new Contributor();
-            contributor.setName(thriftContributor.getName());
-            contributor.setRole(thriftContributor.getRole());
-            IAffiliation affiliation = new Affiliation();
-            affiliation.setAddress(thriftContributor.getAffiliation().getAddress());
-            affiliation.setCountry(thriftContributor.getAffiliation().getCountry());
-            contributor.setAffiliation(affiliation);
-            contributors.add(contributor);
-        }
-        work.setContributors(contributors);
+        work.setContributors(generateDomainContributers(thriftWork.getContributors()));
 
-        List<IEditor> editors = new LinkedList<IEditor>();
-        for (ThriftPerson thriftEditor: thriftWork.getEditors()) {
-            IEditor editor = new Editor();
-            editor.setName(thriftEditor.getName());
-            editor.setRole(thriftEditor.getRole());
-            IAffiliation affiliation = new Affiliation();
-            affiliation.setAddress(thriftEditor.getAffiliation().getAddress());
-            affiliation.setCountry(thriftEditor.getAffiliation().getCountry());
-            editor.setAffiliation(affiliation);
-            editors.add(editor);
-        }
-        work.setEditors(editors);
-
+        work.setEditors(generateDomainEditors(thriftWork.getEditors()));
 
         IWorkLanguage workLanguage = new WorkLanguage();
         workLanguage.setLanguage(thriftWork.getWorkLanguage().getLanguage());
@@ -226,8 +153,120 @@ public final class ThriftConverter {
         subject.setSubjectType(thriftWork.getSubject().getSubjectType());
         work.setSubject(subject);
 
+        work.setTitles(generateDomainTitles(thriftWork.getTitles()));
+
+        work.setAudience(thriftWork.getAudience());
+        return work;
+    }
+
+    private static List<ThriftPerson> generateThriftContributers(List<IContributor> contributors) {
+        List<ThriftPerson> persons = new LinkedList<ThriftPerson>();
+        for (IContributor contributor: contributors) {
+            ThriftPerson thriftPerson = new ThriftPerson();
+            thriftPerson.setName(contributor.getName());
+            thriftPerson.setRole(contributor.getRole());
+            ThriftAffiliation thriftAffiliation = new ThriftAffiliation();
+            thriftAffiliation.setAddress(contributor.getAffiliation().getAddress());
+            thriftAffiliation.setCountry(contributor.getAffiliation().getCountry());
+            thriftPerson.setAffiliation(thriftAffiliation);
+            persons.add(thriftPerson);
+        }
+        return persons;
+    }
+
+    private static List<ThriftPerson> generateTriftEditors(List<IEditor> editors) {
+        List<ThriftPerson> persons = new LinkedList<ThriftPerson>();
+        for (IEditor editor: editors) {
+            ThriftPerson thriftPerson = new ThriftPerson();
+            thriftPerson.setName(editor.getName());
+            thriftPerson.setRole(editor.getRole());
+            ThriftAffiliation thriftAffiliation = new ThriftAffiliation();
+            thriftAffiliation.setAddress(editor.getAffiliation().getAddress());
+            thriftAffiliation.setCountry(editor.getAffiliation().getCountry());
+            thriftPerson.setAffiliation(thriftAffiliation);
+            persons.add(thriftPerson);
+        }
+        return persons;
+    }
+
+    private static List<ThriftTitle> generateThriftTitles(List<ITitle> titles) {
+        List<ThriftTitle> thriftTitles = new LinkedList<ThriftTitle>();
+        for (ITitle title: titles) {
+            ThriftTitle thriftTitle = new ThriftTitle();
+            thriftTitle.setTitle(title.getTitle());
+            thriftTitle.setEdition(title.getEdition());
+            thriftTitle.setType(title.getType());
+            thriftTitle.setVolume(title.getVolume());
+            thriftTitles.add(thriftTitle);
+        }
+        return thriftTitles;
+    }
+
+    private static List<ThriftAuthor> generateThriftAuthors(List<IAuthor> authors) {
+        List<ThriftAuthor> thriftAuthors = new LinkedList<ThriftAuthor>();
+        for (IAuthor author: authors) {
+            ThriftAuthor thriftAuthor = new ThriftAuthor();
+            thriftAuthor.setBirthYear(author.getBirthYear());
+            thriftAuthor.setDeathYear(author.getDeathYear());
+            thriftAuthors.add(thriftAuthor);
+        }
+        return thriftAuthors;
+    }
+
+    private static List<IAuthor> generateDomainAuthors(List<ThriftAuthor> thriftAuthors) {
+        List<IAuthor> authors = new LinkedList<>();
+        for (ThriftAuthor thriftAuthor : thriftAuthors) {
+            IAuthor author = new Author();
+            author.setBirthYear(thriftAuthor.getBirthYear());
+            author.setDeathYear(thriftAuthor.getDeathYear());
+            authors.add(author);
+        }
+        return authors;
+    }
+
+    private static ThriftPublisher generateThriftPublishers(IPublisher publisher) {
+        ThriftPublisher thriftPublisher = new ThriftPublisher();
+        thriftPublisher.setName(publisher.getName());
+        thriftPublisher.setPublicationPlace(publisher.getPublicationPlace());
+        thriftPublisher.setRole(publisher.getRole());
+        thriftPublisher.setStatus(publisher.getStatus());
+        thriftPublisher.setSortOrder(publisher.getSortOrder());
+        return thriftPublisher;
+    }
+
+    private static List<IContributor> generateDomainContributers(List<ThriftPerson> thriftPersons) {
+        List<IContributor> contributors = new LinkedList<IContributor>();
+        for (ThriftPerson thriftContributor: thriftPersons) {
+            IContributor contributor = new Contributor();
+            contributor.setName(thriftContributor.getName());
+            contributor.setRole(thriftContributor.getRole());
+            IAffiliation affiliation = new Affiliation();
+            affiliation.setAddress(thriftContributor.getAffiliation().getAddress());
+            affiliation.setCountry(thriftContributor.getAffiliation().getCountry());
+            contributor.setAffiliation(affiliation);
+            contributors.add(contributor);
+        }
+        return contributors;
+    }
+
+    private static List<IEditor> generateDomainEditors(List<ThriftPerson> thriftPersons) {
+        List<IEditor> editors = new LinkedList<IEditor>();
+        for (ThriftPerson thriftEditor: thriftPersons) {
+            IEditor editor = new Editor();
+            editor.setName(thriftEditor.getName());
+            editor.setRole(thriftEditor.getRole());
+            IAffiliation affiliation = new Affiliation();
+            affiliation.setAddress(thriftEditor.getAffiliation().getAddress());
+            affiliation.setCountry(thriftEditor.getAffiliation().getCountry());
+            editor.setAffiliation(affiliation);
+            editors.add(editor);
+        }
+        return editors;
+    }
+
+    private static List<ITitle> generateDomainTitles(List<ThriftTitle> thriftTitles) {
         List<ITitle> titles = new LinkedList<ITitle>();
-        for (ThriftTitle thriftTitle: thriftWork.getTitles()) {
+        for (ThriftTitle thriftTitle: thriftTitles) {
             ITitle title = new Title();
             title.setTitle(thriftTitle.getTitle());
             title.setEdition(thriftTitle.getEdition());
@@ -235,9 +274,6 @@ public final class ThriftConverter {
             title.setVolume(thriftTitle.getVolume());
             titles.add(title);
         }
-        work.setTitles(titles);
-
-        work.setAudience(thriftWork.getAudience());
-        return work;
+        return titles;
     }
 }
