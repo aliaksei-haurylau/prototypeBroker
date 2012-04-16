@@ -127,3 +127,7 @@ checkstyleMain {
 findbugsMain {
     exclude(['**/copyright/rup/works/broker/thrift/**/*', '**/copyright/rup/works/domain/**/*'])
 }
+
+pmdMain {
+    exclude(['**/copyright/rup/works/broker/thrift/**/*', '**/copyright/rup/works/domain/**/*'])
+}
