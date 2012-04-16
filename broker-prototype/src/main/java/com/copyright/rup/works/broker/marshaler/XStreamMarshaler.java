@@ -15,7 +15,7 @@ import java.util.List;
  * <p/>
  * Date: 04/11/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  *
  */
 public class XStreamMarshaler implements IMarshaler {
@@ -63,9 +63,7 @@ public class XStreamMarshaler implements IMarshaler {
          *
          * });
          */
-        // TODO Check which mode is needed
         xStream.setMode(XStream.NO_REFERENCES);
-        // TODO Check how it works
         xStream.alias(object.getClass().getName(), object.getClass());
         return xStream.toXML(object);
     }

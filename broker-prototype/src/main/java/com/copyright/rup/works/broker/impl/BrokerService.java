@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.copyright.rup.works.broker.impl;
 
 import com.copyright.rup.works.broker.UtilVarialble;
@@ -14,21 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Andrei_Khadziukou
+ * It is a broker service implementation.
+ * <p/>
+ * Copyright (C) 2012 copyright.com
+ * <p/>
+ * Date: 04/13/12.
+ *
+ * @author Andrei_Khadziukou.
  *
  */
-// TODO Add javadoc for type, variable, method and file
-// TODO Create 2 interface for receive and send message.
 public class BrokerService implements IBrokerService {
-
-    // Constant variable for consumer and producer
-    // private static final
 
     private IConsumer consumer;
     private IMarshaler marshaler;
     private IProducer producer;
 
     /**
+     * It gets consumer.
+     *
      * @return the consumer
      */
     public IConsumer getConsumer() {
@@ -36,6 +36,8 @@ public class BrokerService implements IBrokerService {
     }
 
     /**
+     * It gets marshaler.
+     *
      * @return the marshaler
      */
     public IMarshaler getMarshaler() {
@@ -43,6 +45,8 @@ public class BrokerService implements IBrokerService {
     }
 
     /**
+     * It gets producer.
+     *
      * @return the producer
      */
     public IProducer getProducer() {
@@ -79,6 +83,8 @@ public class BrokerService implements IBrokerService {
     }
 
     /**
+     * It sets consumer.
+     *
      * @param consumer
      *            the consumer to set
      */
@@ -87,6 +93,8 @@ public class BrokerService implements IBrokerService {
     }
 
     /**
+     * It sets marshaler.
+     *
      * @param marshaler
      *            the marshaler to set
      */
@@ -95,6 +103,8 @@ public class BrokerService implements IBrokerService {
     }
 
     /**
+     * It sets producer.
+     *
      * @param producer
      *            the producer to set
      */

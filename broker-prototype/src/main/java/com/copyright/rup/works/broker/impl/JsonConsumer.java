@@ -19,7 +19,6 @@ import java.util.List;
  *
  * @author Pavel_Yakovlev
  */
-// TODO Add javadoc
 public class JsonConsumer implements IConsumer {
 
     private ConsumerTemplate consumer;

@@ -10,12 +10,11 @@ import java.util.List;
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: 4/13/12
+ * Date: 4/13/12.
  *
  * @author Andrei_Khadziukou.
  *
  */
-// TODO create separate interface consuming and producing
 public interface IBrokerService {
 
     /**

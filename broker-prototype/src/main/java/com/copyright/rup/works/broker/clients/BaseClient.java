@@ -27,7 +27,7 @@ import javax.management.RuntimeErrorException;
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: 4/13/12
+ * Date: 4/13/12.
  *
  * @author Andrei_Khadziukou.
  *
@@ -36,7 +36,7 @@ public abstract class BaseClient {
 
     private final Logger logger = Logger.getLogger(BaseClient.class);
 
-    private static CamelContext context;
+    private static CamelContext sContext;
     private IBrokerService service;
 
     private List<IWork> works;
@@ -73,7 +73,7 @@ public abstract class BaseClient {
      * @return {@link ConsumerTemplate} object.
      */
     protected ConsumerTemplate getConsumerTemplate() {
-        return context.createConsumerTemplate();
+        return sContext.createConsumerTemplate();
     }
 
     /**
@@ -82,7 +82,7 @@ public abstract class BaseClient {
      * @return {@link ProducerTemplate} object.
      */
     protected ProducerTemplate getProduceTemplate() {
-        return context.createProducerTemplate();
+        return sContext.createProducerTemplate();
     }
 
     private List<IWork> createWorksCollection(int size) {
@@ -96,8 +96,8 @@ public abstract class BaseClient {
     }
 
     private void initContext() {
-        context = new DefaultCamelContext();
-        context.addComponent(CONTEXT_COMPONENT_NAME,
+        sContext = new DefaultCamelContext();
+        sContext.addComponent(CONTEXT_COMPONENT_NAME,
                 ActiveMQComponent.activeMQComponent(UtilVarialble.BROKER_CLIENT_URL));
 //        context.addRoutes(new RouteBuilder() {
 //            /**
@@ -113,7 +113,7 @@ public abstract class BaseClient {
 //            }
 //        });
         try {
-            context.start();
+            sContext.start();
         } catch (Error | Exception e) {
             logger.info("The default cammel context is not started.");
             throw new RuntimeErrorException(new Error(),
@@ -138,7 +138,7 @@ public abstract class BaseClient {
      */
     public void stop() {
         try {
-            context.stop();
+            sContext.stop();
         } catch (Exception e) {
             logger.info("The default camel context cannot be stoped!" + e.getMessage());
         }

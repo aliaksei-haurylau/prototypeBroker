@@ -23,7 +23,7 @@ public class XstreamClient extends BaseClient {
     /**
      * The entry point for app.
      *
-     * @param args the command linr argument
+     * @param args the command line argument
      */
     public static void main(String[] args) {
         XstreamClient client = new XstreamClient();

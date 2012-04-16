@@ -11,9 +11,9 @@ import java.util.List;
  * <p/>
  * Copyright (C) 2012 copyright.com
  * <p/>
- * Date: Apr 17, 2012
+ * Date: 04/12/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  *
  */
 public final class TestUtil {

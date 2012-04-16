@@ -14,7 +14,7 @@ import com.copyright.rup.works.broker.marshaler.JacksonMarshaler;
  * <p/>
  * Date: 04/14/12.
  *
- * @author Andrei_Khadziukou
+ * @author Andrei_Khadziukou.
  */
 public class JacksonClient extends BaseClient {
 
